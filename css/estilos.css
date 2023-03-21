@@ -132,6 +132,7 @@ select{
 
 .div-tabla{
     margin:center; overflow:scroll; max-height: 280px;
+    width: 100%;
 }
 .thead{
     position: sticky;top: 0;
@@ -141,6 +142,8 @@ thead th{
     padding: 10px;
     background: rebeccapurple;
     color: white;
+    width: 1%;
+
 }
 tbody td{
     padding: 10px;
@@ -273,6 +276,7 @@ tr{
     }
     table{
         cursor: pointer;    
+        
     }
     .contenido-modal{
         width: 80%;

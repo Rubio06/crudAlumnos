@@ -152,7 +152,22 @@ function cargarDatos() {
     alert("Se ah cargado los datos correctamente");
 }
 
-const buscar = () => {
+// const buscar = () => {
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             document.getElementById("tablabody").innerHTML = this.response;
+//             selectedRow();
+//         }
+//     };
+//     xmlhttp.open("POST", "./consulta.php", true);
+//     data = new FormData();
+//     data.append("buscar", document.getElementById("buscar").value);
+//     data.append("op", "busqueda");
+//     xmlhttp.send(data);
+// }
+let buscar = document.getElementById("buscar");
+buscar.addEventListener("keyup",()=>{
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -165,7 +180,7 @@ const buscar = () => {
     data.append("buscar", document.getElementById("buscar").value);
     data.append("op", "busqueda");
     xmlhttp.send(data);
-}
+});
 
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
@@ -178,6 +193,7 @@ xmlhttp.open("POST", "./consulta.php", true);
 data = new FormData();
 data.append("op", "selectCarrera");
 xmlhttp.send(data);
+
 
 
 var xmlhttp = new XMLHttpRequest();

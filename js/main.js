@@ -1,3 +1,4 @@
+//TERMINOS Y CONDICIONES
 let btnCheck = document.getElementById("btncheck");
 let terminos = document.getElementById("terminos");
 function checkBoton() {
@@ -19,6 +20,7 @@ let cerrar = document.getElementById('close');
 abrir.addEventListener('click', function () {
     modal.style.display = 'block';
 });
+
 cerrar.addEventListener('click', function () {
     modal.style.display = 'none';
     document.getElementById("nombre").value = "";
@@ -38,6 +40,8 @@ window.addEventListener('click', function (e) {
         modal.style.display = 'none';
     }
 });
+
+
 //MANDAAR DATOS
 const mandarDatos = () => {
     let nombre = document.getElementById("nombre").value;
@@ -166,6 +170,8 @@ function cargarDatos() {
 //     data.append("op", "busqueda");
 //     xmlhttp.send(data);
 // }
+
+//BUSCADOR DE FORMA DINAMICA
 let buscar = document.getElementById("buscar");
 buscar.addEventListener("keyup",()=>{
     var xmlhttp = new XMLHttpRequest();
@@ -182,6 +188,7 @@ buscar.addEventListener("keyup",()=>{
     xmlhttp.send(data);
 });
 
+//MOSTRAR CARRERA
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -194,8 +201,7 @@ data = new FormData();
 data.append("op", "selectCarrera");
 xmlhttp.send(data);
 
-
-
+//MOSTRAR REGISTROS
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -207,6 +213,7 @@ data = new FormData();
 data.append("op", "totalregistros");
 xmlhttp.send(data);
 
+//ENVIAR DATOS
 function Enviardatos(id) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -222,6 +229,7 @@ function Enviardatos(id) {
     console.log(id);
 
 }
+//ACTUALIZAR CAMPOS
 function actualizar() {
     if (confirm("¿Desea actualizar el registro " + document.getElementById("datosid").value + " ?")) {
     var xmlhttp = new XMLHttpRequest();
@@ -251,6 +259,7 @@ function actualizar() {
     alert("Se han actualizado los datos correctamente");
 
 }
+//ELIMINAR REGISTROS
 function eliminar() {
     if (confirm("¿Seguro que desea elimiar el registro " + document.getElementById("datosid").value + " ?")) {
         var xmlhttp = new XMLHttpRequest();
@@ -269,6 +278,7 @@ function eliminar() {
     alert("Los datos se han eliminados correctamente");
 
 }
+//LIMPIAR CAMPOS
 function limpiarCampos() {
     // document.getElementById("datosid").value = "";
     document.getElementById("datosnombre").value = "";
@@ -286,4 +296,50 @@ window.onload = () => {
     setInterval(() => {
         document.getElementById("tablabody");
     }, 3000)
+}
+
+//MANEJO DE SESIONES
+function irPagina() {
+    let usuario = document.getElementById("usuario").value;
+    let clave = document.getElementById("clave").value;
+    let content = document.getElementById("content");
+
+    if (usuario !== "" || clave !== "") {
+        let url = "./consulta.php";
+        let dataForm = new FormData();
+        dataForm.append("op", "logearse");
+        dataForm.append("usuario",usuario);
+        dataForm.append("clave",clave);
+        fetch(url, {
+                method: "POST",
+                body: dataForm
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data > 0) {
+                location.href="panel.php";
+            } else {
+                content.innerHTML = "<p class='invalido'>Error !! Usuario o contraseña invalida</p>";
+                setTimeout(() => {
+                    content.innerHTML = "";
+                }, 3000);
+            }
+        }).catch(err => console.log(err));
+        
+    } else {
+        content.innerHTML = "<p class='blanco'>Debe de completar los espacios en blanco</p>";
+        setTimeout(() => {
+            content.innerHTML = "";
+        }, 3000);
+    }
+}
+//FUNCION ESCONDER Y MOSTRAR CLAVE
+function mostrarClave(){
+    let clave = document.getElementById("clave");
+    document.querySelector("i").classList.toggle("fa-eye");
+    if (clave.type == "password") {
+        clave.type = "text";
+    } else {
+        clave.type = "password";
+    }
 }

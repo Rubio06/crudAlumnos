@@ -139,6 +139,22 @@
         }else if($op == "eliminar"){
             $datosid = $_POST["datosid"];
             $query = mysqli_query($cn, "DELETE FROM `user` WHERE user_id ='$datosid'");
+        
+        }else if($op == "logearse"){
+            session_start();
+            $usuario = $_POST["usuario"];
+            $clave = $_POST["clave"];
+
+            $_SESSION["usuario"] = $usuario;
+            $_SESSION["clave"] = $clave;
+
+            $consulta = "SELECT * FROM logearse WHERE logearse_usuario='$usuario' AND logearse_contrasena='$clave'";
+            $resultado = mysqli_query($cn,$consulta);
+        
+            $filas = mysqli_num_rows($resultado);
+            echo json_encode($filas,JSON_UNESCAPED_UNICODE);
+            mysqli_free_result($resultado);
+            mysqli_close($cn);
         }
     }
 ?>

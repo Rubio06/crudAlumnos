@@ -131,7 +131,7 @@ select{
 }
 
 .div-tabla{
-    margin:center; overflow:scroll; max-height: 280px;
+    margin:center; overflow:scroll; max-height: 240px;
     width: 100%;
 }
 .thead{
@@ -276,7 +276,7 @@ tr{
     }
     table{
         cursor: pointer;    
-        
+
     }
     .contenido-modal{
         width: 80%;
@@ -323,6 +323,7 @@ tr{
     }
     .registros{
         width: 55%;
+        margin-top: 50px;
     }
     .resultRegistros{
         width: 100%;

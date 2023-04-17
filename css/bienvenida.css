@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    /* background: #61acf338; */
+    border: 3px solid #AAB7B8;
+}
+.marque{
+    border-bottom: 3px solid #b2cfb9;
+    width: 100%;
+}
+.cont-bienvenida{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    margin: auto;
+}
+.admin{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 60%;
+}
+p{
+    padding-left: 20px;
+    font-size: 25px;
+    color: rgb(15, 168, 79);
+    font-weight: bold;
+    
+}
+.btn-cerrarsesion{
+    width: 30%;
+}
+.btn-div{
+    width: 52%;
+    margin: auto;
+}
+.btn-cerrarsesion a button{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;  
+    background: rgb(6, 131, 180);
+    color: white;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    text-align: center;
+}
+.btn-cerrarsesion a button:hover{
+    background: rgba(6, 131, 180, 0.705);
+}

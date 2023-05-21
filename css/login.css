@@ -3,82 +3,80 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    /* background-image: linear-gradient(to bottom right,#5856e4,#1e9266 ); */
+    background-image: url(../img/backgroundlogin.png);    
+}
+.titulo-h1{
+    position: fixed;
+    background: rgb(15, 35, 126);
+    color: white;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+
+}
+.h2-titulo{
+    font-size:30px; 
+    text-align:center; 
+    font-weight:bold; 
+    padding: 5px;
+}
 .container{
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    background: #F0F3F4;
-    font-family: Arial, Helvetica, sans-serif;
 }
-h2{
-    margin-bottom: 20px;
-    text-align: center;
-    color: #8a8e8f;
+.flex-contenido{
+    display: flex; 
+    margin:auto; 
+    border: 5px solid  #c39bd3b4; 
+    padding: 10px; 
+    border-radius: 20px;
 }
-.container-login{
-    width: 32%;
+.flex-contenido:hover{
+    box-shadow: 0px 0px 20px 0px #c39bd3b4;    
+}
+
+.cont{
     display: flex;
-    flex-direction: column;
-    padding: 30px;
+    align-items: center;
     margin: auto;
-    background: #e5e8e9;
-    border-radius: 10px;
+    width: 75%;
+    justify-content: space-between;
 }
-.container-login div{
-    width: 90%;
+.contenedor-login{
+    padding: 20px;
+    width: 47%;
+    background: #c39bd3b4;
+    border-radius: 20px 0px 0px 20px;
+}
+.img-svg{
+    width: 53%;
+    background: rgb(193, 204, 230);
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px rgb(193, 204, 230);
+}
+.img-div{
     margin: auto;
-}
-.cont-usuario input, .cont-clave input, .btn-ingresar button{
-    width: 100%;
-    border: 2px solid #D0D3D4;
-    /* border: 2px solid  black; */
-    outline: none;
-    margin-top: 18px;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 15px;
+    width: 50%;
+    display: flex;
 
 }
-.btn-ingresar button{
-    background: #F4D03F;
-    font-size: 17px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+.img-div img{
+    width: 100%;
 }
-.btn-ingresar button:hover{
-    background: #f4d03fcb;
-}
-input:focus{
-    box-shadow: 0px 0px 50px 0px #D0D3D4;
-}
-#content{
+/* #content{
     position: absolute;
-    top: 550px;
+    top: 575px;
     width: 100%;
-}
-
-.invalido{
-    background: rgb(163, 18, 18);
-    width: 100%;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.blanco{
-    background: #58D68D;
-    width: 100%;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+} */
+.cont{
+    padding: 30px;
 }
 i{
     position: absolute;
@@ -86,4 +84,175 @@ i{
     font-size: 18px;
     right: 530px;
     color: #6b6e6e;
+}
+.div-imagen{
+    width: 36%;
+    margin: 20px auto;
+}
+.imagen{
+    height: 120px;
+    width: 120px;
+    border-radius: 60px;
+}
+/* APARECER Y DESAPARECER MENSAJE DE REGISTRO */
+
+.ingreso{
+    background: rgba(41, 182, 111, 0.719);
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 30px 0px rgb(33, 138, 33);
+    /* border: 1px solid rgb(12, 99, 33); */
+    border-radius: 0px 10px 10px 0px;
+}
+
+.invalido{
+    background: rgba(182, 41, 60, 0.719);
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 30px 0px rgba(182, 41, 60, 0.719);
+    /* border: 1px solid rgb(12, 99, 33); */
+    border-radius: 0px 10px 10px 0px;
+}
+
+.blanco{
+    background: rgba(180, 182, 41, 0.719);
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 30px 0px rgba(180, 182, 41, 0.719);
+    /* border: 1px solid rgb(12, 99, 33); */
+    border-radius: 0px 10px 10px 0px;
+}
+#letrero{
+    /* background: rgb(240, 233, 233);
+    font-family: Arial, Helvetica, sans-serif; */
+    width: 29%;
+    /* font-size: 14px;
+    padding: 5px;
+    text-align: center; */
+}
+.desaparecer{
+    position: absolute;
+    left: -410px;
+    /* animation: desaparecer 3s forwards; */
+}
+@keyframes desaparecer{
+    0%{
+        position: absolute;
+        bottom: 0;
+
+        left: 0px;
+    }
+    100%{
+        bottom: 0;
+
+        right: 0px;
+    } 
+}
+/* ////////////////////////////////////////////////// */
+
+.aparecer{
+    position: absolute;
+    left: 0px;
+    /* animation: aparecer 3s forwards; */
+
+}
+@keyframes aparecer{
+    0%{
+        position: absolute;
+        bottom: 0;
+        left: -410px;
+    }
+    100%{
+        bottom: 0;
+
+        right: 0px;
+    }
+}
+
+
+@media only screen and (min-width:375px) and (max-width:499px){
+    .contenedor-login{
+        width: 100%;
+        border-radius: 20px;
+    }
+    #letrero{
+        /* background: rgb(240, 233, 233);
+        font-family: Arial, Helvetica, sans-serif; */
+        width: 100%;
+        /*
+        padding: 5px;
+        text-align: center; */
+    }
+    .img-svg{
+        display: none;
+    }
+}
+@media only screen and (min-width:500px) and (max-width:700px){
+    .contenedor-login{
+        width: 100%;
+        border-radius: 20px;
+    }
+    #letrero{
+        /* background: rgb(240, 233, 233);
+        font-family: Arial, Helvetica, sans-serif; */
+        width: 55%;
+        /* font-size: 14px;
+        padding: 5px;
+        text-align: center; */
+    }
+    .img-svg{
+        display: none;
+    }
+}
+@media only screen and (min-width:701px) and (max-width:800px){
+    .contenedor-login{
+        width: 100%;
+    }
+    #letrero{
+        width: 50%;
+    }
+    .img-svg{
+        display: none;
+    }
+}
+@media only screen and (min-width:801px) and (max-width:991px){
+    .flex-contenido{
+        width: 100%;
+    }
+    .contenedor-login{
+        min-width: 340px;
+    }
+    .img-svg{
+        min-width: 322px;
+
+    }
+    #letrero{
+        width: 40%;
+    }
+
+
+}
+@media only screen and (min-width:992px) and (max-width:1109px){
+    .flex-contenido{
+        width: 80%;
+    }
+    .contenedor-login{
+        min-width: 340px;
+    }
+    .img-svg{
+        min-width: 322px;
+
+    }
+    #letrero{
+        width: 35%;
+    }
 }

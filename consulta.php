@@ -143,7 +143,7 @@
         }else if($op == "logearse"){
             session_start();
             $usuario = $_POST["usuario"];
-            $clave = $_POST["clave"];
+            $clave = md5($_POST["clave"]);
 
             $_SESSION["usuario"] = $usuario;
             $_SESSION["clave"] = $clave;
@@ -155,6 +155,47 @@
             echo json_encode($filas,JSON_UNESCAPED_UNICODE);
             mysqli_free_result($resultado);
             mysqli_close($cn);
+
+        }else if($op == "registrarme"){
+            $usuario = $_POST["logearse_usuario"];
+            $clave = md5($_POST["logearse_contrasena"]);
+            $imagen = "";
+
+            $verificar_usuario = mysqli_query($cn, "SELECT * FROM logearse WHERE logearse_usuario = '$usuario'");
+            $verificar_contrasena = mysqli_query($cn, "SELECT * FROM logearse WHERE logearse_contrasena = '$clave'");
+            
+            if (mysqli_num_rows($verificar_usuario) > 0 || mysqli_num_rows($verificar_contrasena) > 0) {
+                echo json_encode("Ya existe el usuario y la contraseña, escriba otro usuario o contraseña");        
+                exit();       
+            } else {
+                if (isset($_FILES["imagen"])) {
+                    $file = $_FILES["imagen"];
+                    $nombre = $file["name"];
+                    $tipo = $file["type"];
+                    $ruta_provisional = $file["tmp_name"];
+                    $size = $file["size"];
+                    $dimensiones = getimagesize($ruta_provisional);
+                    $width = $dimensiones[0];
+                    $height = $dimensiones[1];
+                    $carpeta = "ruta_imagenes/";
+                    
+                    if ($tipo != "image/jpg" && $tipo != "image/JPG" && $tipo != "image/jpeg" && $tipo != "image/png" && $tipo != "image/gif") {
+                        echo "El archivo no es una imagen";
+                    }else if($size > 3*2000*2000){
+                        echo "Error, el tamañno maximo permitido es un 3MB";
+                    }else{
+                        $src = $carpeta . $nombre;
+                        move_uploaded_file($ruta_provisional, $src);
+                        $imagen = "ruta_imagenes/" . $nombre;
+                    }
+                }
+                $query = mysqli_query($cn, "INSERT INTO `logearse`(`logearse_usuario`, `logearse_contrasena`, `logearse_imagen`) VALUES ('$usuario','$clave','$imagen')");
+
+                    echo json_encode($query);
+            }
         }
     }
+
+    
 ?>
+    

@@ -19,15 +19,13 @@
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/bienvenida.css">
 </head>
-
 <body>
-
     <div class="contenedor">
         <?php 
             include("conexion/conexion.php");
             $cn = Conectarse();
-            include("modal.php");
             include("perfil_sesion.php");
+            include("modal.php");
         ?>
         <div class="formulario-principal">
             <div id="mostrarInputs" class="mostrarInputs">
@@ -107,5 +105,4 @@
     </div>
     <script src="js/main.js"></script>
 </body>
-
 </html>

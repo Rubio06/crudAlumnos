@@ -317,20 +317,23 @@ function irPagina() {
         .then(response => response.json())
         .then(data => {
             if (data > 0) {
-                location.href="panel.php";
-            } else {
-                content.innerHTML = "<p class='invalido'>Error !! Usuario o contraseña invalida</p>";
+                toogleDes();
+                content.innerHTML = "<h1 class='ingreso'>Ingreso correctamente, Bienvenido</h1>";
                 setTimeout(() => {
-                    content.innerHTML = "";
-                }, 3000);
+                    location.href="panel.php";
+                }, 4000);
+            } else {
+                toogleDes();
+                content.innerHTML = "<h1 class='invalido'>Error !! Usuario o contraseña invalida</h1>";
             }
         }).catch(err => console.log(err));
-        
     } else {
+        // content.innerHTML = "<p class='blanco'>Debe de completar los espacios en blanco</p>";
+        // setTimeout(() => {
+        //     content.innerHTML = "";
+        // }, 3000);
+        toogleDes();
         content.innerHTML = "<p class='blanco'>Debe de completar los espacios en blanco</p>";
-        setTimeout(() => {
-            content.innerHTML = "";
-        }, 3000);
     }
 }
 //FUNCION ESCONDER Y MOSTRAR CLAVE
@@ -343,3 +346,32 @@ function mostrarClave(){
         clave.type = "password";
     }
 }
+//FUNCION MENSAJE DE INGRESO LOGIN
+function toogleDes(){
+    let letrero = document.getElementById("letrero");            
+    letrero.classList.add("aparecer");
+    letrero.style.animation = "aparecer 1s forwards";
+    setTimeout(() => {
+        letrero.classList.remove("aparecer");
+        letrero.style.animation = "desaparecer 1s forwards";
+        letrero.classList.add("desaparecer");
+    }, 3000);
+}
+
+let hambAbrir = document.getElementById("hambAbrir");
+let hambCerrar = document.getElementById("hambCerrar");
+let nav = document.getElementById("nav");
+
+hambAbrir.addEventListener("click",()=>{
+    // nav.style.animation = "aparecer 2s forwards";
+    nav.classList.add("visible");
+
+
+})
+hambCerrar.addEventListener("click",()=>{
+    // nav.style.animation = "aparecer 2s forwards";
+    nav.classList.remove("visible");
+    
+})
+
+

@@ -3,9 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-.container{
-    /* background: #61acf338; */
-    border: 3px solid #AAB7B8;
+
+.icono{
+    display: none;
 }
 .marque{
     border-bottom: 3px solid #b2cfb9;
@@ -24,6 +24,17 @@
     align-items: center;
     margin: auto;
     width: 60%;
+}
+.datos-usuario{
+    width: 60%;
+}
+.img-perfil{
+    width: 40%;
+
+}
+.datos-user{
+
+    display:flex
 }
 p{
     padding-left: 20px;
@@ -54,4 +65,159 @@ p{
 }
 .btn-cerrarsesion a button:hover{
     background: rgba(6, 131, 180, 0.705);
+}
+nav{
+    width: 100%;
+    transition: 0s;
+}
+.hola{
+    width: 100%;
+}
+/* //MENU HAMBURGESA */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 1rem; */
+    /* padding: 10px; */
+    background-color: #ececec;
+}
+.logo{
+    max-width: 10rem;
+}
+.nav-list{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.div-btnabrir{
+    display: none;
+}
+.abrir-menu,
+.cerrar-menu{
+    display: none;
+}
+@media only screen and (min-width:375px) and (max-width:700px){
+    .div-btnabrir{
+        display: block;
+        width: 90%; margin:auto;
+    }
+    .header{
+        height: 10vh;
+    }
+    .btnAbrir{
+        width: 100%;
+        margin: 10px 25px 10px 25px;
+    }
+    .abrir-menu,
+    .cerrar-menu{
+        display: block;
+        border: 0;
+        font-size: 1.7rem;
+        background-color: transparent;
+        cursor: pointer;
+        float: right;
+    }
+    .cerrar-menu{
+        color: white;
+    }
+    .nav{
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        background-color: #1c1c1c;
+        width: 60%;
+        box-shadow: 0 0 0 100vmax rgba(0,0,0,.5);
+        z-index: 1;
+        transition: 1s;
+    }
+    /* @keyframes aparecer{
+        100%{
+            right: 0px;
+        }
+    } */
+
+    .visible{
+        opacity: 1;
+        visibility: visible;
+        /* transition: 1s; */
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: end;
+    }
+    .nav-list li a{
+        text-decoration: none;
+        color: #ecececec;
+    }
+    .container{
+        width: 100%;
+    }
+    .cont-bienvenida{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .admin{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+    .h2-bienvenida{
+        text-align: center;
+        padding: 10px 10px;
+        color: rgb(247, 241, 230);
+    }
+    .p-usuario{
+        text-align: center;
+        padding: 10px 10px;
+    }
+    .datos-usuario{
+        display:flex; 
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .btn-cerrarsesion{
+        width: 60%;
+        margin-bottom: 20px;
+    }
+    .btn-div{
+        width: 100%;
+    }
+    .img-perfil{
+        width: 100%;
+        /* border: 2px solid black; */
+        margin: 10px;
+        padding: 15px;
+        background: #b2cfb9;
+    }
+    .img-dentro{
+        width: 80%;
+    }
+    .img-perfil div{
+        margin: auto;
+        width: 49%;
+    }
+    img{
+        height: 73px;
+        border-radius: 10px;
+    }
+    .datos-user{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width:701px) and (max-width:900px){
+    .admin{
+        width: 70%;
+    }
+    .btn-cerrarsesion{
+        width: 30%;
+    }
 }
